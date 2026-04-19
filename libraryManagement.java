@@ -69,6 +69,7 @@ public class libraryManagement{
 	static ArrayList<Book> issueBook(){
 		System.out.print("enter book id: ");
 		int id = sc.nextInt();
+		Boolean found = false;
 		for(Book b : books){
 			if(b.bookId == id){
 				if(b.isIssued != false){
@@ -80,15 +81,18 @@ public class libraryManagement{
 				}
 			}
 			else{
-			System.out.println("book not found");
+				found = true;
 			}
 		}
-		
+		if(!found){
+			System.out.println("book not found");
+		}
 		return books;
 	}
 	static ArrayList<Book> returnBooks(){
 		System.out.print("enter book id: ");
 		int id = sc.nextInt();
+		Boolean found = false;
 		for(Book b : books){
 			if(b.bookId == id){
 				if(b.isIssued != true){
@@ -101,8 +105,11 @@ public class libraryManagement{
 				
 			}
 			else{
-				System.out.println("book not found");
+				found = true;
 			}
+		}
+		if(!found){
+			System.out.println("book not found");
 		}
 		return books;
 	}
